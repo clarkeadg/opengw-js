@@ -2,7 +2,7 @@
 const max = (a,b) => (((a) > (b)) ? (a) : (b))
 const min = (a,b) => (((a) < (b)) ? (a) : (b))
 
-export const superFastBlur(pix, w, h, radius) {
+export const superFastBlur = (pix, w, h, radius) => {
   if (radius<1) return;
 
   const wm = w-1;

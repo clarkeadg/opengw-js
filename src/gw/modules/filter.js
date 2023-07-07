@@ -2,10 +2,10 @@
 const NZEROS = 1;
 const NPOLES = 1;
 
-export const lowpass(input, output, cutoff, len) {
+export const lowpass = (input, output, cutoff, len) => {
 
   if (cutoff > .999) {
-    for (int i=0; i<len; i++) {
+    for (let i=0; i<len; i++) {
       output[i] = input[i];
     }
     return;
@@ -31,7 +31,7 @@ export const lowpass(input, output, cutoff, len) {
 const BPNZEROS = 2;
 const BPNPOLES = 2;
 
-export const bandpass(input, output, cutoff, len) {
+export const bandpass = (input, output, cutoff, len) => {
   if (cutoff > .999) {
     for (let i=0; i<len; i++) {
       output[i] = input[i];
@@ -46,9 +46,9 @@ export const bandpass(input, output, cutoff, len) {
 
   const cutoffVal = (((1-cutoff) * 2) - 1) * 1.8647010906;
 
-  const gain = 0.4+01;
+  const gain = 0.4e+01;
 
-  for (int i=0; i<len; i++) {
+  for (let i=0; i<len; i++) {
     xv[0] = xv[1]; xv[1] = xv[2]; 
     xv[2] = input[i] / gain;
     yv[0] = yv[1]; yv[1] = yv[2]; 
@@ -57,7 +57,7 @@ export const bandpass(input, output, cutoff, len) {
   }
 }
 
-export const mix(s1, s2, output, len) {
+export const mix = (s1, s2, output, len) => {
   for (let i=0; i<len; i++) {
     output[i] = (s1[i] + s2[i])/2;
   }
